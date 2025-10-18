@@ -1,4 +1,7 @@
-// src/controllers/uploadController.js
+exports.uploadCSV = (req, res) => {
+  if (!req.file) return res.status(400).send('No file uploaded');
+  res.send('File uploaded successfully');
+};
 const db = require('../config/db');
 const csvParser = require('csv-parser');
 const { validateRow } = require('../utils/validator');
@@ -20,38 +23,38 @@ async function uploadCSV(req, res) {
     let rowNum = 0;
 
     readable
-      .pipe(csvParser({ mapHeaders: ({ header }) => header.trim().toLowerCase() })) // trim + lower-case headers
-      .on('data', async (data) => {
+      .pipe(csvParser({ mapHeaders: ({ header }) => header.trim().toLowerCase() })) 
+         .on('data', async (data) => {
         readable.pause();
         rowNum += 1;
-        try {
+             try {
           const { valid, errors, cleaned } = validateRow(data, rowNum);
           if (!valid) {
-            failed.push({ row: rowNum, errors });
+                failed.push({ row: rowNum, errors });
           } else {
             try {
               await insertOrUpdateProduct(cleaned);
-              stored.count += 1;
+      stored.count += 1;
             } catch (dbErr) {
               failed.push({ row: rowNum, errors: ['DB insert error', dbErr.message] });
             }
           }
         } catch (err) {
-          failed.push({ row: rowNum, errors: [err.message] });
+  failed.push({ row: rowNum, errors: [err.message] });
         } finally {
           readable.resume();
         }
       })
       .on('end', () => {
-        return res.json({ stored: stored.count, failed });
+           return res.json({ stored: stored.count, failed });
       })
       .on('error', (err) => {
-        return res.status(500).json({ error: 'CSV parse error', message: err.message });
+            return res.status(500).json({ error: 'CSV parse error', message: err.message });
       });
 
   } catch (err) {
     console.error('uploadCSV error', err);
-    return res.status(500).json({ error: err.message });
+         return res.status(500).json({ error: err.message });
   }
 }
 

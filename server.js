@@ -8,10 +8,10 @@ app.use(express.json());
 app.get('/api/products', (req, res) => {
   res.json([
     { id: 1, name: 'Laptop', price: 1000 },
-    { id: 2, name: 'Phone', price: 500 }
+      { id: 2, name: 'Phone', price: 500 }
   ]);
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+     console.log(`Server running on http://localhost:${PORT}`);
 });

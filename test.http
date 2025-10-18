@@ -2,26 +2,51 @@
 GET http://localhost:8000/products
 
 ### Create a new product
-POST http://localhost:8000/products
-Content-Type: application/json
+POST http://localhost:8000/upload
+Content-Type: multipart/form-data; boundary=myboundary
 
-{
-  "name": "Laptop",
-  "price": 59999,
-  "description": "A high-performance laptop for robotics work"
-}
+--myboundary
+Content-Disposition: form-data; name="file"; filename="products.csv"
+Content-Type: text/csv
+
+< ./upload/products.csv
+
+--myboundary--
 
 ### Get a product by ID
-GET http://localhost:8000/products/PRODUCT_ID_HERE
+GET http://localhost:8000/products/37
+
 
 ### Update a product
-PUT http://localhost:8000/products/PRODUCT_ID_HERE
+PUT http://localhost:8000/products/42
 Content-Type: application/json
 
 {
-  "name": "Updated Laptop",
-  "price": 64999
+  "sku": "106",
+  "name": "nokia2",
+  "brand": "Brandg",
+  "mrp": 19899,
+  "price": 14978,
+  "quantity": 9
 }
 
+
 ### Delete a product
-DELETE http://localhost:8000/products/PRODUCT_ID_HERE
+DELETE http://localhost:8000/products/30
+
+
+
+### Search by brand
+GET http://localhost:8000/products/search?brand=BrandA
+
+
+### Search by color
+GET http://localhost:8000/products/search?color=blue
+
+### Search by price range
+GET http://localhost:8000/products/search?minPrice=1000&maxPrice=30000
+
+
+
+
+

@@ -1,4 +1,3 @@
-// src/utils/validator.js
 const requiredFields = ['sku','name','brand','mrp','price'];
 
 function normalizeRow(rawRow) {
@@ -9,10 +8,9 @@ function normalizeRow(rawRow) {
   });
   return row;
 }
-
 function validateRow(rawRow, rowNum = null) {
   const row = normalizeRow(rawRow);
-  const errors = [];
+   const errors = [];
 
   for (const f of requiredFields) {
     if (!row[f] || row[f].length === 0) errors.push(`Missing required field: ${f}`);
@@ -23,9 +21,9 @@ function validateRow(rawRow, rowNum = null) {
   const quantity = row.quantity !== '' ? parseInt(row.quantity, 10) : 0;
 
   if (isNaN(mrp)) errors.push('Invalid mrp (not a number)');
-  if (isNaN(price)) errors.push('Invalid price (not a number)');
-  if (!isNaN(mrp) && !isNaN(price) && price > mrp) errors.push('price must be <= mrp');
-  if (row.quantity !== '' && (isNaN(quantity) || quantity < 0)) errors.push('quantity must be a non-negative integer');
+   if (isNaN(price)) errors.push('Invalid price (not a number)');
+    if (!isNaN(mrp) && !isNaN(price) && price > mrp) errors.push('price must be <= mrp');
+      if (row.quantity !== '' && (isNaN(quantity) || quantity < 0)) errors.push('quantity must be a non-negative integer');
 
   const cleaned = {
     sku: row.sku || null,
@@ -40,5 +38,4 @@ function validateRow(rawRow, rowNum = null) {
 
   return { valid: errors.length === 0, errors, cleaned };
 }
-
 module.exports = { validateRow };

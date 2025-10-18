@@ -1,10 +1,9 @@
-// src/config/db.js
+
 const mysql = require('mysql2/promise');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
-// Read env vars
 const {
   DB_HOST,
   DB_USER,
@@ -13,7 +12,7 @@ const {
   DB_PORT
 } = process.env;
 
-if (!DB_HOST || !DB_USER || !DB_NAME) {
+    if (!DB_HOST || !DB_USER || !DB_NAME) {
   console.error('Missing DB configuration in .env');
   process.exit(1);
 }
