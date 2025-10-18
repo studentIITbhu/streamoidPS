@@ -186,3 +186,47 @@ A backend API for managing products. Supports uploading products via CSV, listin
 
 ---
 
+
+## 🧪 Unit Testing
+
+This project includes **unit tests** to ensure reliability and correctness of key features.
+
+### ✅ Covered Test Areas
+
+- **CSV Parsing** — Verifies that CSV files are correctly read and parsed into product objects.
+- **Data Validation** — Ensures that product data (SKU, price, quantity, etc.) follows required formats and constraints.
+- **Search Filters** — Tests the filtering logic for brand, color, and price range queries.
+
+### 🧰 How to Run Tests
+
+Make sure dependencies are installed:
+npm install
+
+text
+
+Run all tests:
+npm test
+
+text
+
+### 🧾 Sample Test Output
+
+Example output when running tests:
+product-api@1.0.0 test
+jest
+
+PASS tests/csvParser.test.js
+✓ should parse valid CSV correctly (15 ms)
+
+PASS tests/validation.test.js
+✓ should reject invalid price or quantity values (8 ms)
+
+PASS tests/searchFilter.test.js
+✓ should return correct products for brand filter (12 ms)
+✓ should return correct products for color filter (9 ms)
+✓ should return correct products within price range (10 ms)
+
+Test Suites: 3 passed, 3 total
+Tests: 5 passed, 5 total
+Snapshots: 0 total
+Time: 1.543 s
