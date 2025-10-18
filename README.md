@@ -215,20 +215,20 @@ This project includes **unit tests** to ensure reliability and correctness of ke
 
 ## 🧾 Sample Test Output
 
-Example output when running tests:
+**Example output when running tests:**
 ---
-PASS tests/csvParser.test.js
-✓ should parse valid CSV correctly (15 ms)
-PASS tests/validation.test.js
-✓ should reject invalid price or quantity values (8 ms)
-PASS tests/searchFilter.test.js
-✓ should return correct products for brand filter (12 ms)
-✓ should return correct products for color filter (9 ms)
-✓ should return correct products within price range (10 ms)
-Test Suites: 3 passed, 3 total
-Tests: 5 passed, 5 total
-Snapshots: 0 total
-Time: 1.543 s
+         PASS tests/csvParser.test.js
+        ✓ should parse valid CSV correctly (15 ms)
+        PASS tests/validation.test.js
+        ✓ should reject invalid price or quantity values (8 ms)
+         PASS tests/searchFilter.test.js
+        ✓ should return correct products for brand filter (12 ms)
+        ✓ should return correct products for color filter (9 ms)
+        ✓ should return correct products within price range (10 ms)
+        Test Suites: 3 passed, 3 total
+        Tests: 5 passed, 5 total
+        Snapshots: 0 total
+         Time: 1.543 s
 
 ---
 
