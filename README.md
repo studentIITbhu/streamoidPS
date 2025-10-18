@@ -10,10 +10,10 @@ A backend API for managing products. Supports uploading products via CSV, listin
 ---
 
 ## Table of Contents
-- [Setup](#setup)
-- [API Documentation](#api-documentation)
-- [Testing](#testing)
-- [License](#license)
+1. [Setup](#setup)
+2. [API Documentation](#api-documentation)
+3. [Testing](#testing)
+4. [License](#license)
 
 ---
 
@@ -24,7 +24,7 @@ A backend API for managing products. Supports uploading products via CSV, listin
 - npm
 - MySQL server
 
-### Installation Steps
+### Installation
 1. Clone the repository:
    ```bash
    git clone https://github.com/studentIITbhu/streamoidPS.git
@@ -34,7 +34,7 @@ Install dependencies:
 bash
 Copy code
 npm install
-Create a .env file in the root directory with your database configuration:
+Create a .env file in the root directory:
 
 env
 Copy code
@@ -48,10 +48,10 @@ Start the server:
 bash
 Copy code
 npm start
-The API is now accessible at: http://localhost:8000
+The API is now accessible at http://localhost:8000
 
 API Documentation
-Get All Products
+1️⃣ Get All Products
 Method: GET
 
 URL: /products
@@ -74,18 +74,16 @@ Copy code
     "color": "blue"
   }
 ]
-Create a New Product
+2️⃣ Create a New Product
 Method: POST
 
 URL: /upload
 
-Description: Upload products using a CSV file.
+Description: Upload products via CSV file.
 
 Headers: Content-Type: multipart/form-data
 
-Body Parameters:
-
-file: CSV file containing products
+Body Parameters: file (CSV file)
 
 CSV Format Example:
 
@@ -103,12 +101,12 @@ Copy code
   "message": "Products uploaded successfully",
   "uploadedCount": 2
 }
-Get a Product by ID
+3️⃣ Get a Product by ID
 Method: GET
 
 URL: /products/{id}
 
-Description: Retrieves a single product by its ID.
+Description: Retrieves a single product by ID.
 
 Sample Response:
 
@@ -124,7 +122,7 @@ Copy code
   "quantity": 3,
   "color": "red"
 }
-Update a Product
+4️⃣ Update a Product
 Method: PUT
 
 URL: /products/{id}
@@ -151,7 +149,7 @@ Copy code
   "success": true,
   "message": "Product updated successfully"
 }
-Delete a Product
+5️⃣ Delete a Product
 Method: DELETE
 
 URL: /products/{id}
@@ -166,14 +164,12 @@ Copy code
   "success": true,
   "message": "Product deleted successfully"
 }
-Search Products
+6️⃣ Search Products
 By Brand
 
 Method: GET
 
 URL: /products/search?brand=BrandA
-
-Description: Returns products matching the brand.
 
 By Color
 
@@ -181,24 +177,20 @@ Method: GET
 
 URL: /products/search?color=blue
 
-Description: Returns products matching the color.
-
 By Price Range
 
 Method: GET
 
 URL: /products/search?minPrice=1000&maxPrice=30000
 
-Description: Returns products within the specified price range.
-
 Testing
-Ensure the server is running (npm start).
+Ensure the server is running (npm start)
 
 Test endpoints using Postman, Insomnia, or any REST client.
 
 For CSV uploads, ensure the file follows this format:
 
-c
+csv
 Copy code
 sku,name,brand,mrp,price,quantity,color
 101,ProductA,BrandA,15000,12000,5,blue
@@ -207,14 +199,7 @@ License
 MIT License
 
 yaml
-Copy code
 
----
-
-This version fixes previous issues:  
-
-- Proper Markdown formatting  
-- HTTP methods listed clearly (GET, POST, PUT, DELETE)  
-- Body examples and CSV format included  
-- Sample responses for each endpoint  
-- Clean, professional structure for GitHub 
+----
+**save**.  
+ 
