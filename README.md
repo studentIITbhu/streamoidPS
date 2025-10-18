@@ -215,8 +215,8 @@ This project includes **unit tests** to ensure reliability and correctness of ke
 
 ## 🧾 Sample Test Output
 
-**Example output when running tests:**
----
+ - **Example output when running tests:**
+      ---
          PASS tests/csvParser.test.js
         ✓ should parse valid CSV correctly (15 ms)
         PASS tests/validation.test.js
@@ -230,5 +230,5 @@ This project includes **unit tests** to ensure reliability and correctness of ke
         Snapshots: 0 total
          Time: 1.543 s
 
----
+      ---
 
