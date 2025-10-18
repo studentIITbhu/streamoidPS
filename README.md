@@ -9,7 +9,7 @@ A backend API for managing products. Supports uploading products via CSV, listin
 - [Setup](#setup)
 - [API Documentation](#api-documentation)
 - [Testing](#testing)
-- [License](#license)
+
 
 ---
 
