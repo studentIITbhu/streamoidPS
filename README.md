@@ -48,13 +48,13 @@ Start the server:
 bash
 Copy code
 npm start
-Access the API at http://localhost:8000
+The API is now accessible at: http://localhost:8000
 
 API Documentation
 Get All Products
 Method: GET
 
-URL: http://localhost:8000/products
+URL: /products
 
 Description: Retrieves a list of all products.
 
@@ -77,35 +77,57 @@ Copy code
 Create a New Product
 Method: POST
 
-URL: http://localhost:8000/upload
+URL: /upload
 
 Description: Upload products using a CSV file.
 
 Headers: Content-Type: multipart/form-data
 
-Body Example: (multipart form)
+Body Parameters:
 
-makefile
-Copy code
-file: products.csv
-Notes: CSV format should be:
+file: CSV file containing products
+
+CSV Format Example:
 
 csv
 Copy code
 sku,name,brand,mrp,price,quantity,color
 101,ProductA,BrandA,15000,12000,5,blue
 102,ProductB,BrandB,20000,18000,3,red
+Sample Response:
+
+json
+Copy code
+{
+  "success": true,
+  "message": "Products uploaded successfully",
+  "uploadedCount": 2
+}
 Get a Product by ID
 Method: GET
 
-URL: http://localhost:8000/products/37
+URL: /products/{id}
 
 Description: Retrieves a single product by its ID.
 
+Sample Response:
+
+json
+Copy code
+{
+  "id": 37,
+  "sku": "105",
+  "name": "ProductX",
+  "brand": "BrandB",
+  "mrp": 18000,
+  "price": 15000,
+  "quantity": 3,
+  "color": "red"
+}
 Update a Product
 Method: PUT
 
-URL: http://localhost:8000/products/42
+URL: /products/{id}
 
 Description: Updates product details by ID.
 
@@ -121,40 +143,62 @@ Copy code
   "price": 14978,
   "quantity": 9
 }
+Sample Response:
+
+json
+Copy code
+{
+  "success": true,
+  "message": "Product updated successfully"
+}
 Delete a Product
 Method: DELETE
 
-URL: http://localhost:8000/products/30
+URL: /products/{id}
 
 Description: Deletes a product by ID.
 
+Sample Response:
+
+json
+Copy code
+{
+  "success": true,
+  "message": "Product deleted successfully"
+}
 Search Products
 By Brand
 
 Method: GET
 
-URL: http://localhost:8000/products/search?brand=BrandA
+URL: /products/search?brand=BrandA
+
+Description: Returns products matching the brand.
 
 By Color
 
 Method: GET
 
-URL: http://localhost:8000/products/search?color=blue
+URL: /products/search?color=blue
+
+Description: Returns products matching the color.
 
 By Price Range
 
 Method: GET
 
-URL: http://localhost:8000/products/search?minPrice=1000&maxPrice=30000
+URL: /products/search?minPrice=1000&maxPrice=30000
+
+Description: Returns products within the specified price range.
 
 Testing
 Ensure the server is running (npm start).
 
-Use Postman, Insomnia, or your browser to test endpoints.
+Test endpoints using Postman, Insomnia, or any REST client.
 
-For CSV uploads, ensure the CSV format is:
+For CSV uploads, ensure the file follows this format:
 
-cs
+c
 Copy code
 sku,name,brand,mrp,price,quantity,color
 101,ProductA,BrandA,15000,12000,5,blue
@@ -167,11 +211,10 @@ Copy code
 
 ---
 
-This README.md includes:  
-- **Badges** for Node.js, npm, MySQL, and License  
-- **Setup instructions** with `.env` config  
-- **Clean API Documentation** with GET, POST, PUT, DELETE endpoints  
-- **Testing instructions**  
-- **License section**  
+This version fixes previous issues:  
 
----
+- Proper Markdown formatting  
+- HTTP methods listed clearly (GET, POST, PUT, DELETE)  
+- Body examples and CSV format included  
+- Sample responses for each endpoint  
+- Clean, professional structure for GitHub 
