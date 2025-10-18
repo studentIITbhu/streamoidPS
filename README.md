@@ -225,10 +225,7 @@ PASS tests/searchFilter.test.js
 ✓ should return correct products for brand filter (12 ms)
 ✓ should return correct products for color filter (9 ms)
 ✓ should return correct products within price range (10 ms)
-
 Test Suites: 3 passed, 3 total
 Tests: 5 passed, 5 total
 Snapshots: 0 total
-
-
 Time: 1.543 s
